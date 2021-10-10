@@ -1,0 +1,35 @@
+<br><br>
+
+<h1 class="container text-center "> Descripción "<%= @finance.description %>" </h1>  
+
+<br><br>
+
+  <table class="table align-middle container">
+    <thead>
+      <tr>
+        <th class="text-center" scope="col">#id</th>
+        <th class="text-center" scope="col">Descripción</th>
+        <th class="text-center" scope="col">Cantidad</th>
+        <th class="text-center" scope="col">Precio</th>
+        <th class="text-center" scope="col">Fecha</th>
+        <th class="text-center" scope="col">Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+       <th class="text-center" scope="row"><%= @finance.id %></th>
+        <td class="text-center"><%= @finance.description%></td>
+        <td class="text-center"><%= @finance.amount %></td>
+        <td class="text-center"><%= @finance.price %></td>
+        <td class="text-center"><%= @finance.day %></td>
+        <td class="text-center"><%= @finance.category.name %></td>   
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+    <div class="d-grid gap-2 container">
+      <a href="<%= finances_path(@finance) %>" class="btn btn-primary">
+        Atras
+      </a>  
+    </div>

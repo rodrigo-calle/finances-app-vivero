@@ -1,0 +1,7 @@
+<div class="container">
+<h3 class="text-center">Agregar Categoría de Finanza</h3>
+<%= form_with model: @category do |form| %>
+  <p> Nombre: <%= form.text_field :name, class: "form-control" %></p>
+  <%= form.submit 'Agregar Categoría', class: "btn btn-primary " %>
+<% end %>
+</div>

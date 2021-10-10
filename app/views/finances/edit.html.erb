@@ -1,0 +1,19 @@
+<br><br>
+<div class="container">   
+  
+<%= form_for @finance, url: {action: :update} do |form| %>   
+     
+   <h3 class="text-center" >Editar "<%= @finance.description %>"</h3>   
+ <%= "<div>#{@finance.errors.full_messages.first}</div>".html_safe if @finance.errors.any? %>   
+    <p>Tipo: <%= form.select :category_id, Category.all.map { |category| [ category.name, category.id ] } %></p>
+    <p>Descripción: <%= form.text_area :description, class: "form-control" %></p>
+    <p>Precio: <%= form.number_field :price, in: 0.0..50000.0, step: 0.5, class: "form-control"%></p>
+    <p>Cantidad: <%= form.text_field :amount, class: "form-control" %> </p>
+    <p>Fecha: <%=  form.date_field :day, class: "input-append date" %></p>
+   
+  
+      <%= link_to 'Atras', { controller: 'finances', action: 'index'} %>   
+      <%= form.submit 'Actualizar' %>   
+     
+<% end %>   
+</div>  

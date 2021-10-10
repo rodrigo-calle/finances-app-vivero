@@ -1,0 +1,50 @@
+
+<br>
+<br>
+<h1 class="text-center text-decoration-underline">Finanzas "Vivero Santo Domingo"</h1>
+<br>
+<br>
+<div class="d-grid gap-2 container">
+  <a href="<%= new_finance_path(@finance) %>" class="btn btn-primary">
+    Agregar
+  </a>  
+</div>
+
+<br>
+<div class="container">
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th class="text-center" scope="col">#id</th>
+        <th class="text-center" scope="col">Descripción</th>
+        <th class="text-center" scope="col">Cantidad</th>
+        <th class="text-center" scope="col">Precio</th>
+        <th class="text-center" scope="col">Fecha</th>
+        <th class="text-center" scope="col">Tipo</th>
+        <th class="text-center" scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <% @finances.each do |fi| %>
+    <tbody>
+    
+        <th class="text-center" scope="row"><%= fi.id %></th>
+        <td class="text-center"><%= truncate(fi.description, :length => 30)%></td>
+        <td class="text-center"><%= fi.amount %></td>
+        <td class="text-center"><%= fi.price %></td>
+        <td class="text-center"><%=fi.day %></td>
+        <td class="text-center"><%= fi.category.name %></td>   
+        <td class="text-center"> 
+         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          
+          <button type="button" class="btn btn-danger">  <%= link_to 'Eliminar', finance_path(fi), method: :destroy, class: "link-light" %>     </button>
+          <button type="button" class="btn btn-warning"> <%= link_to 'Ver', finance_path(fi), class: "link-light"  %>  </button>
+          <button type="button" class="btn btn-success"> <%= link_to 'Editar', edit_finance_path(fi), class: "link-light"  %>   </button>
+        </td>
+       </div
+      
+
+    </tbody>
+    <%end%>
+  </table>
+</div>
+
